@@ -23,7 +23,7 @@ public class SparkSqlDemo4 {
                 .javaRDD()
                 .map(line -> {
                     Person person = new Person();
-                    person.setAge((int) line.getLong(0));
+                    person.setAge(line.getLong(0));
                     person.setName(line.getString(1));
                     person.setSex(line.getString(2));
                     return person;
