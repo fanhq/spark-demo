@@ -21,6 +21,7 @@ public class SparkSqlDemo1 {
                 .getOrCreate();
         //读取元数据文件
         Dataset<Row> df = spark.read().json("data/person");
+        df = df.select("name","age");
         //生成rdd
         JavaRDD<Row> rdd = df.toJavaRDD();
         //遍历
