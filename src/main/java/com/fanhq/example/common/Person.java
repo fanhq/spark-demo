@@ -12,7 +12,7 @@ public class Person {
 
     private String name;
 
-    private String age;
+    private int age;
 
     private String sex;
 }

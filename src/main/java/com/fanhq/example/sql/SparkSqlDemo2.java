@@ -2,8 +2,9 @@ package com.fanhq.example.sql;
 
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
-import org.apache.spark.sql.SQLContext;
 import org.apache.spark.sql.SparkSession;
+
+import static org.apache.spark.sql.functions.col;
 
 /**
  * @author fanhaiqiu
@@ -11,15 +12,19 @@ import org.apache.spark.sql.SparkSession;
  */
 public class SparkSqlDemo2 {
 
-    public static void main(String[] args) {
-        SparkSession session = SparkSession
+    public static void main(String[] args) throws Exception{
+        SparkSession spark = SparkSession
                 .builder()
                 .appName("SparkSqlDemo2")
                 .master("local")
                 .getOrCreate();
-        SQLContext sqlContext = new SQLContext(session);
-        Dataset<Row> dataset = sqlContext.read().json("data/person");
-        dataset.show();
-        dataset.printSchema();
+        Dataset<Row> df = spark.read().json("data/person");
+        df.show();
+        df.printSchema();
+        df.select("name").show();
+        df.select(col("name"), col("age").plus(1)).show();
+        df.filter(col("age").gt(21)).show();
+        df.groupBy("age").count().show();
+
     }
 }
