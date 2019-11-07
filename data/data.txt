@@ -1,0 +1,5 @@
+2019-11-07 11:43:54.533  INFO 20005 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-11-07 11:43:54.539  INFO 20005 --- [           main] com.cmcc.iot.saas.KafkaHdfsApplication   : Started KafkaHdfsApplication in 6.582 seconds (JVM running for 7.221)
+2019-11-07 11:43:54.540  INFO 20005 --- [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : partitions assigned: [intelligence-building-1, intelligence-building-0, intelligence-building-2]
+2019-11-07 11:44:54.855  INFO 20005 --- [2181@0x6af93788] org.apache.zookeeper.ZooKeeper           : Session: 0x268f3c0011 closed
+2019-11-07 11:44:54.855  INFO 20005 --- [788-EventThread] org.apache.zookeeper.ClientCnxn          : EventThread shut down for session: 0x268f3c0011
