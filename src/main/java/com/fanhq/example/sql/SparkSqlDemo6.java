@@ -16,7 +16,10 @@ public class SparkSqlDemo6 {
                 .appName("SparkSqlDemo6")
                 .master("local")
                 .getOrCreate();
-        Dataset<Row> df = spark.read().json("data/person");
-        df.select("name").write().format("json").save("data/out/demo6");
+        Dataset<Row> df1 = spark.read().json("data/person");
+        df1.select("name").write().format("json").save("data/out/demo6");
+
+        Dataset<Row> df2 = spark.read().format("json").load("data/out/demo6");
+        df2.show();
     }
 }
