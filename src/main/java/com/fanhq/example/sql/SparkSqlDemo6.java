@@ -14,7 +14,7 @@ public class SparkSqlDemo6 {
         SparkSession spark = SparkSession
                 .builder()
                 .appName("SparkSqlDemo6")
-                .master("local")
+                .master("local[*]")
                 .getOrCreate();
         Dataset<Row> df1 = spark.read().json("data/person");
         df1.select("name").write().format("json").save("data/out/demo6");

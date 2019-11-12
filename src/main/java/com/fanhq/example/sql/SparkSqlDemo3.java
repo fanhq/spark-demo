@@ -14,7 +14,7 @@ public class SparkSqlDemo3 {
         SparkSession spark = SparkSession
                 .builder()
                 .appName("SparkSqlDemo3")
-                .master("local")
+                .master("local[*]")
                 .getOrCreate();
         Dataset<Row> df = spark.read().json("data/person");
         df.createOrReplaceTempView("person");

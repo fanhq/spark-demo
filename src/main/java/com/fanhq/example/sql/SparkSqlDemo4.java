@@ -16,7 +16,7 @@ public class SparkSqlDemo4 {
         SparkSession spark = SparkSession
                 .builder()
                 .appName("SparkSqlDemo4")
-                .master("local")
+                .master("local[*]")
                 .getOrCreate();
         JavaRDD<Person> peopleRDD = spark.read()
                 .json("data/person")

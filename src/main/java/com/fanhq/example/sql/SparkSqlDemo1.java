@@ -17,7 +17,7 @@ public class SparkSqlDemo1 {
         SparkSession spark = SparkSession
                 .builder()
                 .appName("SparkSqlDemo1")
-                .master("local")
+                .master("local[*]")
                 .getOrCreate();
         //读取元数据文件
         Dataset<Row> df = spark.read().json("data/person");

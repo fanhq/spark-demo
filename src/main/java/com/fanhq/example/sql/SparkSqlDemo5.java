@@ -22,7 +22,7 @@ public class SparkSqlDemo5 {
         SparkSession spark = SparkSession
                 .builder()
                 .appName("SparkSqlDemo5")
-                .master("local")
+                .master("local[*]")
                 .getOrCreate();
         Dataset<Row> df = spark.read().json("data/person");
         df.createOrReplaceTempView("person");
