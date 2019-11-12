@@ -21,7 +21,7 @@ public class SparkStreamingDemo1 {
 
     public static void main(String[] args) throws Exception{
 
-        SparkConf sparkConf = new SparkConf().setMaster("local").setAppName("SparkStreamingDemo1");
+        SparkConf sparkConf = new SparkConf().setMaster("local[*]").setAppName("SparkStreamingDemo1");
 
         // Create the context
         JavaStreamingContext ssc = new JavaStreamingContext(sparkConf, Durations.seconds(5));
