@@ -44,7 +44,14 @@ public class SparkStreamingDemo3 {
                         LocationStrategies.PreferConsistent(),
                         ConsumerStrategies.Subscribe(topics, kafkaParams)
                 );
-
+//        stream.foreachRDD(rdd -> {
+//            OffsetRange[] offsetRanges = ((HasOffsetRanges) rdd.rdd()).offsetRanges();
+//            rdd.foreachPartition(consumerRecords -> {
+//                OffsetRange o = offsetRanges[TaskContext.get().partitionId()];
+//                System.out.println(
+//                        o.topic() + " " + o.partition() + " " + o.fromOffset() + " " + o.untilOffset());
+//            });
+//        });
         JavaPairDStream<String, String> dStream = stream.mapToPair(record -> new Tuple2<>(record.key(), record.value()));
         dStream.foreachRDD(new VoidFunction<JavaPairRDD<String, String>>() {
             @Override
